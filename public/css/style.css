@@ -1,0 +1,247 @@
+
+  
+:root {
+  --main-bg-color: #d9f5ce;
+  --light-blue: #03a9f4;
+  --border-color: #0288d147;
+  --container-width: 500px;
+}
+
+
+html{
+
+  font-size: 62.5%;
+
+}
+body {
+  font-family: system-ui;
+  background: var(--main-bg-color);
+  height: 100vh;
+  overflow: hidden;
+  background: url(../img/background.jpg);
+  background-size: cover;
+  
+
+}
+
+.logo {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 15rem;
+}
+
+
+body,
+.upload-container,
+.drop-zone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.upload-container,
+.drop-zone {
+  flex-direction: column;
+}
+
+.upload-container {
+  background: #ffffff;
+  border-radius: 2.5rem;
+  box-shadow: 0rem 2rem 2rem 0rem #00000017;
+}
+
+.drop-zone {
+  width: var(--container-width);
+  min-height: 20rem;
+  border: 0.2rem dashed var(--border-color);
+  border-radius: 1rem;
+  margin: 3rem;
+  transition: 0.2s all ease-in;
+}
+
+/* will be added when user drags */
+.drop-zone.dragged {
+  background: var(--main-bg-color);
+  border-color: #0288d1;
+}
+
+.drop-zone input {
+  display: none;
+}
+
+.icon-container {
+  position: relative;
+  width: 7.5rem;
+  height: 10rem;
+}
+
+.icon-container img {
+  width: 7.5rem;
+  position: absolute;
+  transition: transform 0.25s ease-in-out;
+  transform-origin: bottom;
+}
+
+.icon-container .center {
+  z-index: 10;
+}
+.icon-container .right,
+.icon-container .left {
+  filter: grayscale(0.5);
+  transform: scale(0.9);
+}
+
+.dragged .center {
+  transform: translateY(-0.5rem);
+}
+.dragged .right {
+  transform: rotate(10deg) scale(0.9) translateX(2rem);
+}
+.dragged .left {
+  transform: rotate(-10deg) scale(0.9) translateX(-2rem);
+}
+
+.title {
+  font-size: large;
+}
+
+#browseBtn {
+  color: #2196f3;
+  cursor: pointer;
+}
+
+/* uploading progress styles */
+.progress-container {
+  border: 0.2rem solid var(--main-bg-color);
+  width: var(--container-width);
+  height: 7rem;
+  border-radius: 1rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+  display: none;
+}
+
+.progress-container .inner-container {
+  margin: 1rem 1.5rem;
+  z-index: 2;
+  position: absolute;
+  width: calc(100% - 30px);
+}
+
+.progress-container .percent-container {
+  font-size: 1.4rem;
+  margin: 0.5rem;
+  opacity: 0.7;
+}
+
+.progress-container .bg-progress {
+  position: absolute;
+  background: var(--main-bg-color);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: transform 250ms linear;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.progress-container .progress-bar {
+  width: 100%;
+  height: 0.3rem;
+  border-radius: 0.2rem;
+  background: #03a9f4;
+  transition: transform 200ms linear;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+/* sharing container style */
+.sharing-container {
+  margin-bottom: 2.5rem;
+  width: var(--container-width);
+  border-radius: 1rem;
+  display: none;
+}
+
+.sharing-container p {
+  text-align: center;
+}
+
+.sharing-container .expire {
+  font-size: 1.6rem;
+  opacity: 0.7;
+  margin-top: 0;
+}
+
+.sharing-container .input-container {
+  display: flex;
+  position: relative;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.sharing-container .input-container input {
+  width: 100%;
+  border-radius: 0.3rem;
+  padding: 1rem 1.5rem;
+  font-size: 2rem;
+  border: 0.2rem dashed var(--border-color);
+  border-radius: 0.6rem;
+  background: #f5fcff;
+  color: #607d8b;
+}
+
+.email-container{
+  align-items: center;
+}
+
+.email-container img {
+  height:4.2rem;
+  width: 4.2rem;
+  margin-left: 14.0rem ;
+  flex-direction: column;
+  align-items: center;
+}
+
+.toast {
+  position: absolute;
+  bottom: 1rem;
+  right: 50%;
+  transform: translate(50%, 6rem);
+  padding: 1rem 2rem;
+  background: var(--light-blue);
+  color: #fff;
+  border-radius: 0.5rem;
+  font-size: 1.8rem;
+  box-shadow: 0rem 1rem 1.5rem -0.3rem rgba(0, 0, 0, 0.1),
+    0rem 0.4rem 0.6rem -0.2rem rgba(0, 0, 0, 0.05);
+  transition: transform ease-in-out 0.2s;
+}
+
+.show.toast {
+  transform: translate(50%, 0);
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --container-width: 32rem;
+  }
+
+ 
+  .image-vector {
+    display: none;
+  }
+  .email-container .filed {
+    flex-direction: column;
+  }
+  .email-container .filed {
+    width: 30rem;
+  }
+  
+.upload-container,
+.drop-zone{
+  height: auto;
+  width: auto;
+}
+
+}
